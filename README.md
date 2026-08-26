@@ -1,34 +1,18 @@
-# IAM-least-privilege-p2-26-aug-26
+# IAM Least Privilege - Project 2
+AWS IAM project implementing least privilege for 3 roles.
 
-## AWS IAM Least-Privilege Model - 3 Role Separation of Duties
+## Policies Implemented
+1. **Billing ReadOnly** - Can view bills only, no changes. [Code](./billing-readonly.json)
+   - Why: Finance needs to see cost but not modify resources
 
-Implemented secure IAM following principle of least privilege and separation of duties.
+2. **Developer EC2 Limited** - Can manage EC2 only in us-east-1, cannot touch IAM/billing. [Code](./developer-ec2-limited.json)
+   - Why: Devs can build but cannot escalate privileges
 
-### 1. billing-user (Finance)
-- Policy: `Billing-readonly`
-- Scope: Billing read-only only. Cannot access EC2, S3, IAM.
-- Why: Finance team should not manage infrastructure.
+3. **Intern S3 ReadOnly** - Can read S3 objects only. [Code](./Intern-ReadOnly-s3.json)
+   - Why: Interns need to learn from data but cannot delete
 
-### 2. developer-user (Developer)
-- Policy: `developer-ec2-limited`
-- Scope: EC2 full access in us-east-1 only. Denied IAM & Billing.
-- Why: Developers can build but cannot escalate privileges or view costs.
+## Proof
+- 4 screenshots show IAM policies attached
+- 3 JSON files show custom least privilege policies with region lock and Deny
 
-### 3. intern-user (Intern)
-- Policy: `Intern-ReadOnly-S3`
-- Scope: S3 read-only only.
-- Why: Intern can learn from data but cannot delete/modify.
-
-### Screenshots Proof
-![users](IMG-20260826-WA0079.jpg)
-![intern](IMG-20260826-WA0082.jpg)
-![developer](IMG-20260826-WA0083.jpg)
-![billing](IMG-20260826-WA0084.jpg)
-
-### Skills Demonstrated
-- Custom IAM policies (JSON)
-- Least privilege principle
-- IAM user management
-- Security best practices
-
-Built: 26 Aug 2026 | AWS Free Tier | Accra, Ghana
+Date: 26 Aug 2026
