@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DeveloperEC2Limited",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances",
+                "ec2:Describe*",
+                "ec2:RunInstances"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": "us-east-1"
+                }
+            }
+        },
+        {
+            "Sid": "DenyIAMAndBilling",
+            "Effect": "Deny",
+            "Action": [
+                "iam:*",
+                "aws-portal:*",
+                "billing:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
