@@ -16,3 +16,12 @@ AWS IAM project implementing least privilege for 3 roles.
 - 3 JSON files show custom least privilege policies with region lock and Deny
 
 Date: 26 Aug 2026
+## 📸 Screenshots
+
+### IAM Users List
+![IAM Users](01-iam-user-list.jpeg)
+
+### Permissions
+![Billing](02-billing-permission.jpeg)
+![Developer](03-developer-permission.jpeg)
+![Intern](04-intern-permission.jpeg)
